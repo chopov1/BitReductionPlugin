@@ -14,7 +14,7 @@
 //==============================================================================
 /**
 */
-class MessAroundInProcessBlockAudioProcessorEditor  : public juce::AudioProcessorEditor
+class MessAroundInProcessBlockAudioProcessorEditor  : public juce::AudioProcessorEditor, juce::Slider::Listener
 {
 public:
     MessAroundInProcessBlockAudioProcessorEditor (MessAroundInProcessBlockAudioProcessor&);
@@ -23,6 +23,8 @@ public:
     //==============================================================================
     void paint (juce::Graphics&) override;
     void resized() override;
+
+    void sliderValueChanged(juce::Slider* slider) override;
 
 private:
     // This reference is provided as a quick way for your editor to

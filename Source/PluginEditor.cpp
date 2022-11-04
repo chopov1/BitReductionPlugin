@@ -18,13 +18,15 @@ MessAroundInProcessBlockAudioProcessorEditor::MessAroundInProcessBlockAudioProce
     setSize (400, 300);
 
     multiplierSlider.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalVerticalDrag);
-    multiplierSlider.setTextBoxStyle(juce::Slider::TextBoxAbove, true, 100, 25);
+    multiplierSlider.setTextBoxStyle(juce::Slider::TextBoxAbove, false, 100, 25);
     bitshiftSlider.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalVerticalDrag);
-    bitshiftSlider.setTextBoxStyle(juce::Slider::TextBoxAbove, true, 100, 25);
+    bitshiftSlider.setTextBoxStyle(juce::Slider::TextBoxAbove, false, 100, 25);
     multiplierSlider.setRange(10, 200);
     multiplierSlider.setValue(120);
     bitshiftSlider.setRange(0, 16);
     bitshiftSlider.setValue(1);
+    multiplierSlider.addListener(this);
+    bitshiftSlider.addListener(this);
     addAndMakeVisible(multiplierSlider);
     addAndMakeVisible(bitshiftSlider);
 }
@@ -52,4 +54,13 @@ void MessAroundInProcessBlockAudioProcessorEditor::resized()
     multiplierSlider.setBounds(getWidth()/2, getHeight()/2, 100, 100);
     bitshiftSlider.setBounds(getWidth() / 4, getHeight() / 4, 100, 100);
     //bitshiftSlider.setBounds(slider2);
+}
+
+void MessAroundInProcessBlockAudioProcessorEditor::sliderValueChanged(juce::Slider *slider) {
+    if (slider == &multiplierSlider) {
+        audioProcessor.Multiplier = multiplierSlider.getValue();
+    }
+    if (slider == &bitshiftSlider) {
+        audioProcessor.Shifter = bitshiftSlider.getValue();
+    }
 }

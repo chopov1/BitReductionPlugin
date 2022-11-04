@@ -53,7 +53,7 @@ public:
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
-    int Multiplier = 120;
+    int Multiplier{ 120 };
     int Shifter = 1;
 private:
     //==============================================================================
