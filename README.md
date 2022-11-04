@@ -1,0 +1,2 @@
+# BitReductionPlugin
+ using bitshift
