@@ -156,14 +156,13 @@ void MessAroundInProcessBlockAudioProcessor::processBlock (juce::AudioBuffer<flo
     {
         auto* channelData = buffer.getWritePointer (channel);
         for (int sample = 0; sample < buffer.getNumSamples(); sample++) {
-            //channelData[i] = 0;
-            /*temp = channelData[i];
-            temp *= 10;
-            channelData[i] = (float)(((int)temp) / 10);*/
+            
             temp = channelData[sample];
             temp2 = temp * Multiplier;
             temp2 = temp2>>Shifter;
             temp = ((float)temp2) / Multiplier;
+            //shitty volume compensation
+            //temp *= Shifter + 1;
             channelData[sample] = temp;
         }
     }
