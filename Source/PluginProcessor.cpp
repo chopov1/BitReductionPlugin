@@ -161,9 +161,9 @@ void MessAroundInProcessBlockAudioProcessor::processBlock (juce::AudioBuffer<flo
             temp *= 10;
             channelData[i] = (float)(((int)temp) / 10);*/
             temp = channelData[i];
-            temp2 = temp * 120;
-            temp2 = temp2>>1;
-            temp = ((float)temp2) / 120;
+            temp2 = temp * Multiplier;
+            temp2 = temp2>>Shifter;
+            temp = ((float)temp2) / Multiplier;
             channelData[i] = temp;
         }
     }

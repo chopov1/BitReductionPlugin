@@ -29,5 +29,8 @@ private:
     // access the processor object that created it.
     MessAroundInProcessBlockAudioProcessor& audioProcessor;
 
+    juce::Slider multiplierSlider;
+    juce::Slider bitshiftSlider;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MessAroundInProcessBlockAudioProcessorEditor)
 };
