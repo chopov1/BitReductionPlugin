@@ -1,6 +1,6 @@
 # BitReductionPlugin
  using bitshift for the algorithm
-'''c++
+```c++
  for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
         auto* channelData = buffer.getWritePointer (channel);
@@ -13,4 +13,4 @@
             channelData[sample] = temp;
         }
     }
-'''
+```
